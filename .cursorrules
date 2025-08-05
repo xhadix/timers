@@ -1,0 +1,121 @@
+# Timer Application Development Rules
+
+## Project Overview
+Build a ReactJS timer application with TailwindCSS based on the provided Figma designs and requirements.
+
+## Technology Stack
+- ReactJS with TypeScript
+- TailwindCSS for styling
+- React Context for state management
+- React Router for navigation
+
+## Development Approach
+Follow this step-by-step development process:
+1. **Templating first** - Create basic layout and structure
+2. **Breakdown to components** - Extract reusable components
+3. **Use React Context** - Implement state management
+4. **Implement functionality** - Add timer logic and interactions
+
+## UI/UX Requirements
+
+### Layout Structure
+- **Header**: Left side shows page name, right side has two action buttons (sort and create timer)
+- **Navigation**: Timer navigation button only (skip projects and settings)
+- **Background**: Gradient from bottom #1d47ba to top #0e215a
+- **Content**: List of timers with left content (title, project, timeline) and right section (ongoing timer)
+
+### Timer List Screen
+- Display list of timers
+- Each timer shows: title, project assigned, timeline
+- Right section shows ongoing timer with play/pause functionality
+- Plus button in header navigates to create timer screen
+- Skip implementing different tabs (favorites, odoo, etc.)
+- Skip implementing bottom navigation bar (recents, projects, etc.)
+
+### Create Timer Screen
+- Form to create new timer
+- Dropdowns for projects and tasks
+- Text input for timer description
+- Checkbox for marking as favorite
+- Return to timer list after creation
+
+### Task Details Screen
+- Details tab with task information (use static/random data)
+- Timesheets tab with running timer details
+- Play/pause and stop functionality
+- State synchronization between screens
+
+## Code Standards
+
+### Component Structure
+- Use functional components with hooks
+- Implement proper TypeScript interfaces
+- Follow React best practices
+- Use meaningful component names
+
+### State Management
+- Use React Context for global state
+- Separate business logic from UI components
+- Implement proper state updates
+- Handle timer state synchronization
+
+### Styling Guidelines
+- Use TailwindCSS classes
+- Follow the gradient background requirement
+- Match Figma design specifications
+- Ensure responsive design
+- Use consistent spacing and typography
+
+### Navigation
+- Implement React Router
+- Support deep linking and bookmarking
+- Handle navigation between screens
+- Maintain proper routing structure
+
+## Data Management
+- Use in-memory data management
+- Implement proper data structures for timers, projects, tasks
+- Handle timer state (running, paused, completed)
+- Ensure data consistency across components
+
+## File Organization
+```
+src/
+├── components/
+│   ├── TimerList/
+│   ├── CreateTimer/
+│   ├── TaskDetails/
+│   └── common/
+├── contexts/
+├── types/
+├── utils/
+└── pages/
+```
+
+## Development Priorities
+1. Set up project structure and dependencies
+2. Create basic layout and navigation
+3. Implement timer list screen
+4. Add create timer functionality
+5. Implement task details screen
+6. Add state management and timer logic
+7. Polish UI and ensure design compliance
+
+## Testing Considerations
+- Ensure timer functionality works correctly
+- Test state synchronization between screens
+- Verify navigation and routing
+- Check responsive design
+- Validate form inputs and validation
+
+## Performance Guidelines
+- Optimize component re-renders
+- Use proper dependency arrays in useEffect
+- Implement efficient state updates
+- Consider memoization for expensive operations
+
+## Accessibility
+- Use semantic HTML elements
+- Implement proper ARIA labels
+- Ensure keyboard navigation
+- Maintain color contrast ratios 
