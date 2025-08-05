@@ -15,41 +15,7 @@ type TimerAction =
   | { type: 'UPDATE_ELAPSED_TIME'; payload: { id: string; elapsedTime: number } };
 
 const initialState: TimerState = {
-  timers: [
-    {
-      id: '1',
-      title: 'iOS app deployment',
-      project: { id: '1', code: 'SO056', name: 'Booqio V2' },
-      deadline: '07/20/2023',
-      isFavorite: false,
-      isRunning: false,
-      elapsedTime: 0,
-      totalTime: 1800, // 30 minutes
-      status: 'stopped'
-    },
-    {
-      id: '2',
-      title: 'iOS app deployment with odd',
-      project: { id: '2', code: 'SO057', name: 'Booqio V3' },
-      deadline: '07/25/2023',
-      isFavorite: true,
-      isRunning: true,
-      elapsedTime: 1800, // 30 minutes
-      totalTime: 3600, // 1 hour
-      status: 'running'
-    },
-    {
-      id: '3',
-      title: 'Android app testing',
-      project: { id: '3', code: 'SO058', name: 'Mobile App' },
-      deadline: '07/30/2023',
-      isFavorite: true,
-      isRunning: false,
-      elapsedTime: 900, // 15 minutes
-      totalTime: 2700, // 45 minutes
-      status: 'paused'
-    }
-  ]
+  timers: []
 };
 
 const timerReducer = (state: TimerState, action: TimerAction): TimerState => {
