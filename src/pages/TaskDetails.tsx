@@ -131,9 +131,7 @@ const TaskDetails: React.FC = () => {
             <div className="bg-white/10 rounded-lg p-6">
               <h3 className="text-lg font-semibold mb-3">Description</h3>
               <p className="text-white/80 leading-relaxed">
-                This is a sample task description. The task involves implementing the timer functionality 
-                for the mobile application. This includes creating the UI components, implementing the 
-                state management, and ensuring proper time tracking functionality.
+                {timer.description || 'No description provided'}
               </p>
             </div>
           </div>
