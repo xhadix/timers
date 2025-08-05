@@ -108,14 +108,6 @@ The application uses React Context for state management with the following featu
 - Real-time timer updates
 - Global state synchronization across components
 
-## Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## License
-
-This project is licensed under the ISC License. 
+AI Usage Documentations
+https://github.com/xhadix/timers/blob/main/AI_USAGE.md
