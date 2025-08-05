@@ -180,30 +180,6 @@ const TimerList: React.FC = () => {
                   </svg>
                 )}
               </button>
-              
-              <button 
-                onClick={() => handleSortOptionSelect('name')}
-                className="w-full flex items-center justify-between p-4 bg-white/10 rounded-lg"
-              >
-                <span className="text-white font-medium">Name</span>
-                {sortBy === 'name' && (
-                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                  </svg>
-                )}
-              </button>
-              
-              <button 
-                onClick={() => handleSortOptionSelect('project')}
-                className="w-full flex items-center justify-between p-4 bg-white/10 rounded-lg"
-              >
-                <span className="text-white font-medium">Project</span>
-                {sortBy === 'project' && (
-                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                  </svg>
-                )}
-              </button>
             </div>
           </div>
         </div>
