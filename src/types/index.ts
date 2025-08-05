@@ -1,6 +1,7 @@
 export interface Timer {
   id: string;
   title: string;
+  description: string;
   project: Project;
   deadline: string;
   isFavorite: boolean;

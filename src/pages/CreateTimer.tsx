@@ -5,6 +5,7 @@ import Header from '../components/common/Header';
 
 interface FormData {
   title: string;
+  description: string;
   projectId: string;
   deadline: string;
   isFavorite: boolean;
@@ -15,6 +16,7 @@ const CreateTimer: React.FC = () => {
   const { addTimer } = useTimer();
   const [formData, setFormData] = useState<FormData>({
     title: '',
+    description: '',
     projectId: '',
     deadline: '',
     isFavorite: false
@@ -36,11 +38,11 @@ const CreateTimer: React.FC = () => {
 
     addTimer({
       title: formData.title,
+      description: formData.description,
       project: selectedProject,
       deadline: formData.deadline,
       isFavorite: formData.isFavorite,
       isRunning: false,
-      elapsedTime: 0,
       totalTime: 0
     });
 
@@ -76,6 +78,18 @@ const CreateTimer: React.FC = () => {
               className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-white/40"
               placeholder="Enter timer title"
               required
+            />
+          </div>
+
+          {/* Description Input */}
+          <div>
+            <label className="block text-sm font-medium mb-2">Description</label>
+            <textarea
+              value={formData.description}
+              onChange={(e) => handleInputChange('description', e.target.value)}
+              className="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/60 focus:outline-none focus:border-white/40 resize-none"
+              placeholder="Enter timer description"
+              rows={3}
             />
           </div>
 
