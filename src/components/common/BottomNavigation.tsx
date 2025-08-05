@@ -39,21 +39,25 @@ const BottomNavigation: React.FC<BottomNavigationProps> = ({ activeTab, onTabCha
   };
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-gray-100 border-t border-gray-200">
-      <div className="flex justify-around py-3">
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            onClick={() => onTabChange(tab.id)}
-            className={`flex flex-col items-center gap-1 px-4 py-2 rounded-lg transition-colors ${
-              activeTab === tab.id
-                ? 'text-black bg-white'
-                : 'text-black bg-gray-200'
-            }`}
-          >
-            {getIcon(tab.icon)}
-            <span className="text-xs font-medium">{tab.label}</span>
-          </button>
+    <div className="fixed bottom-0 left-0 right-0 bg-[#1f49be] backdrop-blur-md border-t border-white/20">
+      <div className="flex justify-around py-4">
+        {tabs.map((tab, index) => (
+          <React.Fragment key={tab.id}>
+            <button
+              onClick={() => onTabChange(tab.id)}
+              className={`flex flex-col items-center gap-1 px-4 py-2 transition-colors ${
+                activeTab === tab.id
+                  ? 'text-white'
+                  : 'text-white/70 hover:text-white'
+              }`}
+            >
+              {getIcon(tab.icon)}
+              <span className="text-xs font-medium">{tab.label}</span>
+            </button>
+            {index < tabs.length - 1 && (
+              <div className="w-px h-8 bg-white/30 self-center"></div>
+            )}
+          </React.Fragment>
         ))}
       </div>
     </div>
