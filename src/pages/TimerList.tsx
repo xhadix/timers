@@ -7,7 +7,7 @@ const TimerList: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-gradient-primary text-white">
+    <div className="min-h-screen bg-gradient-to-t from-[#1d47ba] to-[#0e215a] text-white">
       {/* Header */}
       <header className="flex justify-between items-center p-6 pb-4">
         <div>
