@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTimer } from '../contexts/TimerContext';
 import Header from '../components/common/Header';
-import TimerCard from '../components/TimerList/TimerCard';
 
 const TaskDetails: React.FC = () => {
   const navigate = useNavigate();
