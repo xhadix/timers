@@ -140,7 +140,8 @@ export const TimerProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       ...timerData,
       id: Date.now().toString(),
       elapsedTime: 0,
-      status: 'stopped'
+      status: 'stopped',
+      totalTime: timerData.totalTime || 0
     };
     dispatch({ type: 'ADD_TIMER', payload: newTimer });
   };

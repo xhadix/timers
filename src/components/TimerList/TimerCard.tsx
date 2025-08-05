@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Timer } from '../../types';
 
 interface TimerCardProps {
@@ -7,6 +8,7 @@ interface TimerCardProps {
 }
 
 const TimerCard: React.FC<TimerCardProps> = ({ timer, onPlayPause }) => {
+  const navigate = useNavigate();
   const formatTime = (seconds: number): string => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
@@ -14,7 +16,10 @@ const TimerCard: React.FC<TimerCardProps> = ({ timer, onPlayPause }) => {
   };
 
   return (
-    <div className="bg-white/10 rounded-lg p-4">
+    <div 
+      className="bg-white/10 rounded-lg p-4 cursor-pointer hover:bg-white/15 transition-colors"
+      onClick={() => navigate(`/task/${timer.id}`)}
+    >
       <div className="flex items-center justify-between">
         <div className="flex-1">
           {/* Timer Title and Checkbox */}
@@ -50,7 +55,10 @@ const TimerCard: React.FC<TimerCardProps> = ({ timer, onPlayPause }) => {
             </div>
           </div>
           <button 
-            onClick={() => onPlayPause(timer.id)}
+            onClick={(e) => {
+              e.stopPropagation();
+              onPlayPause(timer.id);
+            }}
             className="text-white/80"
           >
             {timer.isRunning ? (
