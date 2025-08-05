@@ -1,12 +1,133 @@
 # AI Usage Documentation
 
 ## Project Overview
-This document tracks the AI-assisted development of a ReactJS timer application built with TypeScript and TailwindCSS. The project follows the requirements outlined in the [test assignment](https://gist.github.com/adar2378/3e4bf8b58c26a1795e1241fff55a9cc5).
+This document tracks the AI-assisted development of a ReactJS timer application built with TypeScript and TailwindCSS.
 
 ## AI Tools Used
 - **Primary LLM**: Claude Sonnet 4 (via Cursor IDE)
 - **Development Environment**: Cursor IDE with AI integration
 - **Version Control**: Git with atomic commits
+
+## Development Approach: Step-by-Step Breakdown
+
+### Step 1: Project Foundation
+**Prompt**: "Set up a ReactJS timer application with TypeScript and TailwindCSS following the requirements from the test assignment"
+
+**Breakdown**:
+- Initialize React project with Vite and TypeScript
+- Configure TailwindCSS for styling
+- Set up project structure with proper component organization
+- Implement basic routing with React Router
+
+**Files Created**:
+- `package.json` with dependencies
+- `tailwind.config.js` for styling configuration
+- `src/App.tsx` with routing setup
+- Basic project structure
+
+### Step 2: Component Architecture
+**Prompt**: "Create the basic component structure for the timer application with Header, TimerList, CreateTimer, and TaskDetails components"
+
+**Breakdown**:
+- Design component hierarchy
+- Create reusable common components
+- Implement proper TypeScript interfaces
+- Set up component props and state management
+
+**Components Created**:
+- `Header.tsx` - Navigation and action buttons
+- `TimerList.tsx` - Main timer listing screen
+- `CreateTimer.tsx` - Form for creating new timers
+- `TaskDetails.tsx` - Detailed timer view with tabs
+
+### Step 3: State Management Implementation
+**Prompt**: "Implement React Context for timer state management with proper TypeScript typing"
+
+**Breakdown**:
+- Design state structure for timers, projects, tasks
+- Create TimerContext with useReducer pattern
+- Implement timer actions (add, update, delete, start, pause, stop)
+- Add timer tick functionality for running timers
+
+**Files Created**:
+- `src/contexts/TimerContext.tsx` - Main state management
+- `src/types/index.ts` - TypeScript interfaces
+- Timer state management with proper actions
+
+### Step 4: UI/UX Implementation
+**Prompt**: "Implement the design system with gradient backgrounds and proper styling according to the Figma specifications"
+
+**Breakdown**:
+- Apply gradient background (#1d47ba to #0e215a)
+- Style components with TailwindCSS
+- Implement responsive design
+- Add proper hover and focus states
+
+**Styling Applied**:
+- Gradient backgrounds across all screens
+- Consistent spacing and typography
+- Interactive states for buttons and forms
+- Mobile-first responsive design
+
+### Step 5: Navigation and Routing
+**Prompt**: "Implement proper navigation between screens with React Router and add bottom navigation"
+
+**Breakdown**:
+- Set up React Router with proper routes
+- Create bottom navigation component
+- Implement navigation between timer list, create timer, and task details
+- Add back navigation functionality
+
+**Navigation Features**:
+- Route configuration for all screens
+- Bottom navigation with blurred background
+- Header with back button functionality
+- Proper navigation state management
+
+### Step 6: Form Implementation
+**Prompt**: "Create the timer creation form with project selection, description input, and validation"
+
+**Breakdown**:
+- Design form structure with proper fields
+- Implement project dropdown selection
+- Add description textarea input
+- Include form validation and user feedback
+
+**Form Features**:
+- Project selection dropdown
+- Description textarea with proper styling
+- Form validation and error handling
+- Submit functionality with navigation
+
+### Step 7: Timer Functionality
+**Prompt**: "Implement timer play/pause/stop functionality with proper state synchronization"
+
+**Breakdown**:
+- Create timer control functions
+- Implement timer tick for running timers
+- Add state synchronization across components
+- Handle timer state transitions
+
+**Timer Features**:
+- Start/pause/stop timer controls
+- Real-time timer updates
+- State synchronization between screens
+- Proper timer state management
+
+### Step 8: Design Polish
+**Prompt**: "Update bottom navigation bg color to #1f49be blurred, options not boxed just text separated by white lines"
+
+**Breakdown**:
+- Update bottom navigation styling
+- Implement blurred background effect
+- Add white line separators between options
+- Ensure proper text styling and hover states
+
+**Design Updates**:
+- Blurred background with specified color
+- Text-based navigation options
+- White line separators
+- Proper contrast and readability
 
 ## Development Process
 
@@ -117,16 +238,6 @@ This document tracks the AI-assisted development of a ReactJS timer application 
 - [x] Blurred bottom navigation
 - [x] Form validation and user feedback
 
-### 🔄 In Progress
-- [ ] Deep linking implementation
-- [ ] Additional timer features (favorites, filtering)
-- [ ] Enhanced UI animations
-
-### 📋 Planned Features
-- [ ] Data persistence (localStorage)
-- [ ] Advanced timer features
-- [ ] Performance optimizations
-
 ## AI-Generated Code Evaluation
 
 ### Quality Assessment
@@ -201,4 +312,4 @@ The development process showcases:
 
 **Repository**: [GitHub Repository Link]
 **Live Demo**: [Deployment Link]
-**Documentation**: This AI_USAGE.md file 
+**Documentation**: This AI_USAGE.md file
