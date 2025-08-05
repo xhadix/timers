@@ -1,10 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTimer } from '../contexts/TimerContext';
+
+type SortOption = 'recent' | 'oldest';
 
 const TimerList: React.FC = () => {
   const { timers } = useTimer();
   const navigate = useNavigate();
+  const [showSortModal, setShowSortModal] = useState(false);
+  const [sortBy, setSortBy] = useState<SortOption>('recent');
+
+  // Sort timers based on selected option
+  const sortedTimers = [...timers].sort((a, b) => {
+    switch (sortBy) {
+      case 'recent':
+        return new Date(b.deadline).getTime() - new Date(a.deadline).getTime();
+      case 'oldest':
+        return new Date(a.deadline).getTime() - new Date(b.deadline).getTime();
+      default:
+        return 0;
+    }
+  });
+
+  const handleSortOptionSelect = (option: SortOption) => {
+    setSortBy(option);
+    setShowSortModal(false);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-t from-[#1d47ba] to-[#0e215a] text-white">
@@ -14,7 +35,10 @@ const TimerList: React.FC = () => {
           <h1 className="text-2xl font-bold text-white">Timesheets</h1>
         </div>
         <div className="flex gap-3">
-          <button className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">
+          <button 
+            onClick={() => setShowSortModal(true)}
+            className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center"
+          >
             <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" />
             </svg>
@@ -45,7 +69,7 @@ const TimerList: React.FC = () => {
         
         {/* Timer List */}
         <div className="space-y-4">
-          {timers.map((timer) => (
+          {sortedTimers.map((timer) => (
             <div key={timer.id} className="bg-white/10 rounded-lg p-4">
               <div className="flex items-center justify-between">
                 <div className="flex-1">
@@ -115,6 +139,75 @@ const TimerList: React.FC = () => {
           </button>
         </div>
       </div>
+
+      {/* Sort Modal */}
+      {showSortModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-end">
+          <div className="bg-[#1d47ba] w-full rounded-t-3xl p-6 pb-8">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-xl font-bold text-white">Sort by</h3>
+              <button 
+                onClick={() => setShowSortModal(false)}
+                className="text-white/60"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            
+            <div className="space-y-4">
+              <button 
+                onClick={() => handleSortOptionSelect('recent')}
+                className="w-full flex items-center justify-between p-4 bg-white/10 rounded-lg"
+              >
+                <span className="text-white font-medium">Recent</span>
+                {sortBy === 'recent' && (
+                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                  </svg>
+                )}
+              </button>
+              
+              <button 
+                onClick={() => handleSortOptionSelect('oldest')}
+                className="w-full flex items-center justify-between p-4 bg-white/10 rounded-lg"
+              >
+                <span className="text-white font-medium">Oldest</span>
+                {sortBy === 'oldest' && (
+                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                  </svg>
+                )}
+              </button>
+              
+              <button 
+                onClick={() => handleSortOptionSelect('name')}
+                className="w-full flex items-center justify-between p-4 bg-white/10 rounded-lg"
+              >
+                <span className="text-white font-medium">Name</span>
+                {sortBy === 'name' && (
+                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                  </svg>
+                )}
+              </button>
+              
+              <button 
+                onClick={() => handleSortOptionSelect('project')}
+                className="w-full flex items-center justify-between p-4 bg-white/10 rounded-lg"
+              >
+                <span className="text-white font-medium">Project</span>
+                {sortBy === 'project' && (
+                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                  </svg>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
